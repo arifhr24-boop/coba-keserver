@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Time Tracker - Milidetik 70</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        body {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .blink-red {
+            animation: blink 0.3s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4">
+    <div class="bg-black/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-800 max-w-md w-full">
+        <h1 class="text-3xl font-bold text-center text-white mb-8">
+            Live Time Tracker
+        </h1>
+
+        <div class="flex items-center justify-center space-x-2 text-white font-bold text-4xl md:text-5xl">
+            <!-- Hours -->
+            <div class="bg-gray-800/50 px-3 py-3 rounded-xl" id="hours">00</div>
+            <div>:</div>
+            
+            <!-- Minutes -->
+            <div class="bg-gray-800/50 px-3 py-3 rounded-xl" id="minutes">00</div>
+            <div>:</div>
+            
+            <!-- Seconds -->
+            <div class="bg-gray-800/50 px-3 py-3 rounded-xl" id="seconds">00</div>
+            <div>.</div>
+            
+            <!-- Milliseconds -->
+            <div class="bg-gray-800/50 px-3 py-3 rounded-xl" id="milliseconds">000</div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <div class="text-lg font-semibold transition-colors duration-150" id="status-text">
+                Menunggu milidetik 70...
+            </div>
+            <div class="text-gray-400 text-sm mt-2">
+                Seluruh milidetik berubah merah ketika angka 70
+            </div>
+        </div>
+
+        <div class="mt-12 p-4 bg-gray-800/30 rounded-lg text-center">
+            <div class="text-gray-400 text-sm">
+                <p>Format: HH:MM:SS.mmm</p>
+                <p>Diperbarui setiap 10ms • Presisi: ±10ms</p>
+                <p class="mt-2 text-red-400 font-semibold" id="debug-info">
+                    Debug: Milidetik saat ini: <span id="current-ms">000</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center text-gray-500 text-xs">
+            <p>Live millisecond tracking • Highlight saat milidetik 70</p>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            
+            // Format waktu
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+            
+            // Cek apakah milidetik mengandung 70
+            const isSeventy = milliseconds.includes('70');
+            
+            // Update tampilan
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            document.getElementById('milliseconds').textContent = milliseconds;
+            document.getElementById('current-ms').textContent = milliseconds;
+            
+            // Update warna milidetik
+            const msElement = document.getElementById('milliseconds');
+            const statusElement = document.getElementById('status-text');
+            
+            if (isSeventy) {
+                msElement.className = 'px-3 py-3 rounded-xl bg-red-600 text-red-400 border-2 border-red-500/50 shadow-lg shadow-red-500/20 blink-red transition-all duration-150';
+                statusElement.className = 'text-lg font-semibold text-red-400 animate-pulse transition-colors duration-150';
+                statusElement.textContent = 'MILIDETIK 70 TERDETEKSI! (MERAH)';
+            } else {
+                msElement.className = 'bg-gray-800/50 px-3 py-3 rounded-xl text-white transition-all duration-150';
+                statusElement.className = 'text-lg font-semibold text-green-400 transition-colors duration-150';
+                statusElement.textContent = 'Menunggu milidetik 70...';
+            }
+        }
+
+        // Jalankan pertama kali
+        updateTime();
+        
+        // Set interval untuk update setiap 10ms
+        setInterval(updateTime, 10);
+    </script>
+</body>
+</html>
