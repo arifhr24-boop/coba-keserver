@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello HTML</title>
+  <meta name="description" content="Belajar HTML dasar dari nol">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1><em>Hello HTML</em></h1>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>Ini adalah paragraf pertama saya di HTML.</p>
+    <p><strong>Belajar HTML sangat menyenangkan.</strong></p>
+
+    <p>Halo! <a href="https://pm1.aminoapps.com/7100/b042a2a64faf448b33aa56ebf80341ae6a85b72er1-591-518v2_00.jpg"
+      target="_blank" rel="noopener">Ke situs lain</a></p>
+
+    <figure>
+      <img src="asset/PertaminaHO1.jpg" alt="Foto profil Arif di kantor Pertamina" width="200">
+      <figcaption>Foto profil Arif</figcaption>
+    </figure>
+
+    <section id="daftar">
+      <h2>Daftar</h2>
+      <ul>
+        <li>Poin 1</li>
+        <li>Poin 2</li>
+        <li>Poin 3</li>
+      </ul>
+      <ol>
+        <li>Langkah 1</li>
+        <li>Langkah 2</li>      
+    </section>
+
+    <section id="tabel">
+      <h2>Produk</h2    >
+      <table>
+        <thead>
+          <tr><th scope="col">Produk</th><th scope="col">Harga</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kaos 24s</td><td>75.000</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="tentang">
+      <h2>Tentang Saya</h2>
+      <p>Perkenalan singkat.</p>
+    </section>
+
+    <article id="proyek">
+      <h2>Artikel/Proyek Terbaru</h2>
+      <p>Konten inti…</p>
+    </article>
+
+    <aside>Info samping…</aside>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="nama">Nama:</label>
+          <input id="nama" name="nama" type="text" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div> 
+          <label for="pesan">Pesan:</label>
+          <textarea id="pesan" name="pesan" rows="4" required></textarea>
+        </div>
+        <button type="submit">Kirim</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>© 2025 Arif</footer>
+</body>
+</html>
