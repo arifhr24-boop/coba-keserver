@@ -1,12 +1,12 @@
 /* ========== Base & Reset ========== */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
+body{
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.65;
-  color: #222;
-  background: #f6f7f9;
+  line-height: 1.6;
+  color: #111827;
+  background: #0b0b0b url("asset/bg-1.jpg") center/cover no-repeat fixed; /* ⬅️ */
 }
 
 /* Container */
@@ -20,59 +20,99 @@ main {
 header {
   max-width: 960px;
   margin: 0 auto;
-  padding: 24px 20px 8px;
+  padding: 24px 20px 30px;
+  text-align: center;
 }
-h1 { font-size: 2.25rem; margin: 0 0 8px; }
-
+h1 { font-size: 2.25rem;
+    margin: 0 0 8px;
+    color: rgb(255, 255, 255);
+    /* background: rgb(142, 92, 92);*/
+}
 nav {
   display: flex;
-  gap: 16px;
-  padding: 8px 0 0;
+  gap: 20px;
+  padding: 2px 2px 2px;
+  /* background: #000000; */
+  justify-content: center;
 }
 nav a {
-  color: #0a66c2;
+  color: #ffffff;
+  text-shadow: #000000 1px 1px 2px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   padding: 6px 8px;
-  border-radius: 8px;
+  text-align: center
+  border-radius: 10px;
 }
-nav a:hover { background: #e7f0fb; }
+nav a:hover { background: #005078;}
 
 /* (opsional) jadikan nav “lengket” saat discroll */
-@media (min-width: 640px) {
-  header { position: sticky; top: 0; background: #f6f7f9; z-index: 10; }
+@media (min-width: 300px) {
+ header { position: sticky; top: 0; z-index: 10;
+background:
+    /* linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), */
+    url("asset/bg-1.jpg") center/cover no-repeat;
+}
 }
 
 /* ========== Content Blocks ========== */
 section, article, aside {
-  background: #fff;
-  border: 1px solid #e7e9ee;
+  background: #003258;
+  border: 1px solid #ffffff;
   border-radius: 12px;
-  padding: 16px;
+  padding: 20px;
   margin: 20px 0;
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.04);
+  color: #ffffff;
 }
 
 h2 { font-size: 1.5rem; margin: 4px 0 12px; }
-p  { margin: 10px 0; }
+p  { margin: 10px 0; color:#ffffff ;}
+a  {color: #000000;}
 ul, ol { margin: 10px 0 10px 20px; }
 
 /* Gambar responsif */
-img { display: block; max-width: 100%; height: auto; border-radius: 10px; }
+img {
+    display: block;
+    width: 450px;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 auto;}
+figcaption {
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    margin-top: px;
+}
 
 /* ========== Tabel ========== */
 table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 10px; }
-thead th { background: #f1f3f6; }
-th, td { padding: 10px 12px; border: 1px solid #e5e7eb; text-align: left; }
-tbody tr:nth-child(even) { background: #fafbfc; }
+thead th { background: #ffffff; }
+th, td { padding: 10px 12px; border: 1px solid #ffffff; text-align: left; }
+thead th { background:#ffffff; color:#271111; }
+tbody td { color:#ffffff; }                       /* teks isi putih */
+tbody tr:nth-child(even){ background:#064a78; }   /* zebra di isi tabel */
+
 
 /* ========== Form ========== */
 form label { display: block; margin: 10px 0 6px; font-weight: 600; }
 input, textarea {
-  width: 100%; padding: 10px 12px; border: 1px solid #dcdfe5; border-radius: 10px;
+  width: 100%; 
+  padding: 10px 12px; 
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000; 
+  border-radius: 10px;
   outline: none;
 }
-input:focus, textarea:focus { border-color: #0a66c2; box-shadow: 0 0 0 3px rgba(10,102,194,.15); }
+input::placeholder,
+textarea::placeholder{
+  color:#003563;
+  opacity:40%;
+  font-weight: 700;
+  font-style:italic;
+}
+input:focus, textarea:focus { border-color: #00ccff; box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15); }
 button {
   margin-top: 10px; padding: 10px 14px; border: 0; border-radius: 10px;
   background: #0a66c2; color: #fff; font-weight: 700; cursor: pointer;

@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1><em>Hello HTML</em></h1>
+    <h1><em>Hello World</em></h1>
     <nav>
       <a href="#tentang">Tentang</a>
       <a href="#proyek">Proyek</a>
@@ -25,10 +25,10 @@
       target="_blank" rel="noopener">Ke situs lain</a></p>
 
     <figure>
-      <img src="asset/PertaminaHO1.jpg" alt="Foto profil Arif di kantor Pertamina" width="200">
-      <figcaption>Foto profil Arif</figcaption>
+      <img src="asset/PertaminaHO1.jpg" alt="Foto profil Arif di kantor Pertamina" width="200" loading="lazy">
+      <figcaption>Foto Percobaan</figcaption>
+      
     </figure>
-
     <section id="daftar">
       <h2>Daftar</h2>
       <ul>
@@ -38,11 +38,13 @@
       </ul>
       <ol>
         <li>Langkah 1</li>
-        <li>Langkah 2</li>      
+        <li>Langkah 2</li>  
+        <li>Langkah 3</li>
+      </ol>    
     </section>
 
     <section id="tabel">
-      <h2>Produk</h2    >
+      <h2>Produk</h2>
       <table>
         <thead>
           <tr><th scope="col">Produk</th><th scope="col">Harga</th></tr>
@@ -70,15 +72,15 @@
       <form action="#" method="post">
         <div>
           <label for="nama">Nama:</label>
-          <input id="nama" name="nama" type="text" required>
+          <input id="nama" name="nama" type="text" placeholder="Masukkan Nama Lengkap" required>
         </div>
         <div>
           <label for="email">Email:</label>
-          <input id="email" name="email" type="email" required>
+          <input id="email" name="email" type="email" placeholder="Masukkan Alamat Email" required>
         </div>
         <div> 
           <label for="pesan">Pesan:</label>
-          <textarea id="pesan" name="pesan" rows="4" required></textarea>
+          <textarea id="pesan" name="pesan" rows="4" placeholder="Masukan Pesan"></textarea>
         </div>
         <button type="submit">Kirim</button>
       </form>
